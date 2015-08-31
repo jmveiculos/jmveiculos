@@ -16,7 +16,7 @@
 	<div ng-show='!jm.buscando_informacoes'>
 		<p>{[{jm.informacoes_revenda.nome}]}</p>
 		<p>{[{jm.informacoes_revenda.endereco}]}</p>
-		<img src="{[{jm.informacoes_revenda.foto}]}" alt="">
+		<img ng-src="{[{jm.informacoes_revenda.foto}]}" alt="">
 		<p ng-repeat="carro in jm.informacoes_revenda.carros.carro track by $index">
 			<a href="{[{carro.href}]}">{[{carro.href}]}</a> 
 		</p>
