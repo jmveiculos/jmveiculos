@@ -11,6 +11,7 @@
 	<script src="js/app.js" type="text/javascript"></script>
 </head>
 <body ng-app="jmapp" ng-controller="indexCtrl">
-{[{jm.buscar_informacoes}]}
+	<button ng-click="getRevendaInformation()">buscar info</button>
+		{{jm.informacoes_revenda}}
 </body>
 </html>

@@ -1,10 +1,21 @@
-angular.module('carrosapi', ['ajax']);
+angular.module('carrosapi', []);
 
-angular.module('carrosapi').factory('CarrosApi', function(Ajax){
+angular.module('carrosapi').factory('CarrosApi', function($http){
 	return {
         get_info: function(){
-            var url="https://query.yahooapis.com/v1/public/yql?q=use%20%22http%3A%2F%2Fyql-tables.surge.sh%2Fcarrosaojose.com.br%2Frevenda.xml%22%20as%20revenda%3B%20select%20*%20from%20revenda%20where%20id%20%3D%20%223639%22%3B&format=json&diagnostics=true&callback=";
-            return Ajax.get(url);
+            return $http.jsonp('http://query.yahooapis.com/v1/public/yql', {
+			    params: {
+			        q: 'use "http://yql-tables.surge.sh/carrosaojose.com.br/revenda.xml" as revenda; select * from revenda where id = "3639";',
+			        format: 'json',
+			        callback: 'JSON_CALLBACK'
+			    }
+			}).then(function (result) {
+			    // result.data contains the 
+			    // the response from Yahoo
+			    console.log(result.data);
+			});
+
+
         }
 	}
 });
