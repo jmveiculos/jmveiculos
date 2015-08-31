@@ -4,4 +4,5 @@ angular.module('jmapp').controller('indexCtrl', function ($scope, CarrosModel){
   $scope.getRevendaInformation = function(){
   	jm.buscar_informacoes();
   };
+  
 });

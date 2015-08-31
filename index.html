@@ -12,6 +12,11 @@
 </head>
 <body ng-app="jmapp" ng-controller="indexCtrl">
 	<button ng-click="getRevendaInformation()">buscar info</button>
-		{{jm.informacoes_revenda}}
+	<span ng-show='jm.buscando_informacoes'>carregando dados</span>
+	<div ng-show='!jm.buscando_informacoes'>
+		<p ng-repeat="carro in jm.informacoes_revenda.carros.carro track by $index">
+			<a href="{[{carro.href}]}">{[{carro.href}]}</a> 
+		</p>
+	</div>		
 </body>
 </html>

@@ -18,6 +18,9 @@ if(!Global.angular_dependencies){
   Global.angular_dependencies = [];
 }
 
+Global.loja_id = '3639';
+Global.revenda_url = 'http://yql-tables.surge.sh/carrosaojose.com.br/revenda.xml';
+
 angular.module("jmapp", ['carrosmodel']);
 
 console.log('criou o jmapp');
