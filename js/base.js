@@ -22,7 +22,7 @@ Global.loja_id = '3639';
 Global.revenda_url = 'http://yql-tables.surge.sh/carrosaojose.com.br/revenda.xml';
 Global.carro_url = 'http://yql-tables.surge.sh/carrosaojose.com.br/carro.xml';
 
-angular.module("jmapp", ['revendamodel']);
+angular.module("jmapp", ['revendamodel', 'carromodel']);
 
 console.log('criou o jmapp');
 
