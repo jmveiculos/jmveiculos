@@ -1,6 +1,6 @@
-angular.module('carrosmodel', ['carrosapi']);
+angular.module('revendamodel', ['revendaapi']);
 
-angular.module('carrosmodel').factory('CarrosModel', function(CarrosApi){
+angular.module('revendamodel').factory('RevendaModel', function(RevendaApi){
 	
 	var jm = {
 		buscando_informacoes: false, 
@@ -10,7 +10,7 @@ angular.module('carrosmodel').factory('CarrosModel', function(CarrosApi){
 	jm.buscar_informacoes = function(user){
 		jm.buscando_informacoes = true;
 
-		CarrosApi.get_info().then(function(resposta){
+		RevendaApi.get_info().then(function(resposta){
 			jm.informacoes_revenda = resposta.data.query.results.revenda;
 			console.log(jm.informacoes_revenda);		
 		}).finally(function(){

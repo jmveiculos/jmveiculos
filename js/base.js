@@ -20,28 +20,12 @@ if(!Global.angular_dependencies){
 
 Global.loja_id = '3639';
 Global.revenda_url = 'http://yql-tables.surge.sh/carrosaojose.com.br/revenda.xml';
+Global.carro_url = 'http://yql-tables.surge.sh/carrosaojose.com.br/carro.xml';
 
-angular.module("jmapp", ['carrosmodel']);
+angular.module("jmapp", ['revendamodel']);
 
 console.log('criou o jmapp');
 
 angular.module("jmapp").config(function($interpolateProvider){
 	$interpolateProvider.startSymbol('{[{').endSymbol('}]}');
 });
-
-Global.friendly_date = function(d){
-    var delta = new Date().getTime() - d.getTime();
-    var seconds = Math.floor(delta / 1000);
-    var minutes = Math.floor(seconds / 60);
-    var hours = Math.floor(minutes / 60);
-    var days = Math.floor(hours / 24);
-    if(minutes < 1){
-        return seconds + " seconds ago";
-    } else if(hours < 1){
-        return minutes + " minutes ago";
-    } else if(days < 1){
-        return hours + " hours ago";
-    } else {
-        return days + " days ago";
-    }
-}

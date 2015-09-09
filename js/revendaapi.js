@@ -1,6 +1,6 @@
-angular.module('carrosapi', []);
+angular.module('revendaapi', []);
 
-angular.module('carrosapi').factory('CarrosApi', function($http){
+angular.module('revendaapi').factory('RevendaApi', function($http){
 	return {
         get_info: function(){
             return $http.jsonp('http://query.yahooapis.com/v1/public/yql', {
