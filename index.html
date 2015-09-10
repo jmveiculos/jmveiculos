@@ -13,7 +13,7 @@
 	<script src="js/app.js" type="text/javascript"></script>
 </head>
 <body ng-app="jmapp" ng-controller="indexCtrl">
-	<button ng-click='getUrls()'>busca apenas urls</button>		
+	<button ng-click='getUrls()' ng-disabled='jm.buscando_urls_carros'>busca apenas urls</button>		
 	<span ng-show='jm.buscando_urls_carros'>pegando urls</span>
 	<span ng-show='jm.encontrou_carros_url'>{[{jm.carros_url}]}</span> 
 </body>

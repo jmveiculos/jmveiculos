@@ -31,7 +31,7 @@ angular.module('revendamodel').factory('RevendaModel', function(RevendaApi, Carr
 		jm.buscando_urls_carros = true;
 		RevendaApi.get_urls().then(function(resultado){
 			var carros_url = resultado.data.query.results.revenda;			
-
+			jm.carros_url = [];
 			for (var i=0; i< carros_url.length; i++){
 				var href_carro = carros_url[i].carros.carro.href;
 				jm.carros_url.push(href_carro);
@@ -39,10 +39,8 @@ angular.module('revendamodel').factory('RevendaModel', function(RevendaApi, Carr
 			
 			jm.encontrou_carros_url = true;
 
-			console.log(jm.carros_url);
-
 			}).finally(function(){
-			jm.buscando_urls_carros = false;
+				jm.buscando_urls_carros = false;
 		});
 	};
 
