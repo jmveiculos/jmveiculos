@@ -14,7 +14,20 @@
 </head>
 <body ng-app="jmapp" ng-controller="indexCtrl">
 	<button ng-click='getUrls()' ng-disabled='jm.buscando_urls_carros'>busca apenas urls</button>		
-	<span ng-show='jm.buscando_urls_carros'>pegando urls</span>
-	<span ng-show='jm.encontrou_carros_url'>{[{jm.carros_url}]}</span> 
+	<p>
+		<span ng-show='jm.buscando_urls_carros'>pegando urls</span>		
+	</p>
+	<p>
+		<span ng-show='jm.encontrou_carros_url'>encontrados {[{jm.carros_url.length}]} carros</span> 		
+	</p>
+	<p>
+		<button ng-click='getCarros()' ng-disabled='jm.buscando_informacoes_da_lista_de_carros || !jm.encontrou_carros_url '>
+			buscar dados dos {[{jm.carros_url.length > 0 ? jm.carros_url.length : '' }]} carros
+		</button>		
+	</p>
+
+	<p ng-repeat='carro in jm.carros track by $index' ng-if='jm.carros'>
+		<img ng-src="{[{foto}]}" alt="{[{carro.nome}]}" ng-repeat='foto in carro.fotos.foto track by $index'>
+	</p>
 </body>
 </html>
