@@ -21,3 +21,16 @@ angular.module('carromodel').factory('CarroModel', function(CarroApi){
 
 	return cm;
 });
+
+angular.module('carromodel').directive('carro', function(){
+	return {
+		restrict: 'E', 
+		templateUrl: '/js/componentes/carro.html',
+		replace: true, 
+		scope : {
+			carro: '='
+		},
+		controller: function($scope){
+		}
+	}
+});
