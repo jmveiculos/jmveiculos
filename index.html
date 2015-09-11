@@ -26,8 +26,8 @@
 		</button>		
 	</p>
 
-	<p ng-repeat='carro in jm.carros track by $index' ng-if='jm.carros'>
-		<img ng-src="{[{foto}]}" alt="{[{carro.nome}]}" ng-repeat='foto in carro.fotos.foto track by $index'>
+	<p ng-repeat='carro in jm.carros track by $index' ng-if='jm.carros' style="margin-bottom:30px;"> 
+		<img ng-src="{[{foto}]}" alt="{[{carro.nome}]}" ng-repeat='foto in carro.fotos track by $index'>		
 	</p>
 </body>
 </html>

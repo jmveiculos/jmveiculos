@@ -1,6 +1,6 @@
 angular.module('revendamodel', ['revendaapi', 'carroapi']);
 
-angular.module('revendamodel').factory('RevendaModel', function(RevendaApi, CarroApi, $q){
+angular.module('revendamodel').factory('RevendaModel', function(RevendaApi, CarroApi, $q, CarroModel){
 	
 	var jm = {
 		buscar_informacoes_da_revenda: false, 
@@ -50,7 +50,22 @@ angular.module('revendamodel').factory('RevendaModel', function(RevendaApi, Carr
 
 		for (var i=0;i< jm.carros_url.length; i++) {
 			CarroApi.get_info(jm.carros_url[i]).then(function(resultado){
-				jm.carros.push(resultado.data.query.results.carro);
+				
+				var carro = resultado.data.query.results.carro;		
+				var carroModel = CarroModel.createModel();
+
+				carroModel.nome = carro.nome;
+				carroModel.ano = carro.ano;
+				carroModel.valor = carro.valor;
+				carroModel.fotos = carro.fotos.foto;
+				carroModel.cor = carro.cor;
+				carroModel.combustivel = carro.combustivel;
+				carroModel.opcionais = carro.opcionais;
+				carroModel.observacoes = carro.observacoes;
+				carroModel.quilometragem = carro.quilometragem;
+
+				jm.carros.push(carroModel);
+
 			}).finally(function(){
 				jm.buscando_informacoes_da_lista_de_carros = false;				
 			});			
@@ -58,7 +73,5 @@ angular.module('revendamodel').factory('RevendaModel', function(RevendaApi, Carr
 		return deferred.promise;
 	};
 
-
-
 	return jm;
-});
+});	

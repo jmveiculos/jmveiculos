@@ -3,19 +3,20 @@ angular.module('carromodel', ['carroapi']);
 angular.module('carromodel').factory('CarroModel', function(CarroApi){
 	
 	var cm = {
-		buscando_informacoes: false, 
-		informacoes_carro: null
+		createModel: function(){ return new carroModel },
 	};
 
-	cm.buscar_informacoes_do_carro = function(carro_url){
-		cm.buscando_informacoes = true;
-
-		CarroApi.get_info(carro_url).then(function(resposta){
-			cm.informacoes_carro = resposta.data.query.results;
-			console.log(cm.informacoes_carro);		
-		}).finally(function(){
-			cm.buscando_informacoes = false;			
-		});
+	function carroModel(){
+		this.nome = undefined;
+		this.ano = undefined;
+		this.fotos = undefined;
+		this.valor = undefined; 
+		this.cor = undefined;
+		this.combustivel = undefined;
+		this.opcionais = undefined;
+		this.observacoes = undefined;
+		this.opcionais = undefined;
+		this.quilometragem = undefined;
 	};
 
 	return cm;
