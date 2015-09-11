@@ -25,7 +25,7 @@ angular.module('carromodel').factory('CarroModel', function(CarroApi){
 angular.module('carromodel').directive('carro', function(){
 	return {
 		restrict: 'E', 
-		templateUrl: '/js/componentes/carro.html',
+		templateUrl: 'js/componentes/carro.html',
 		replace: true, 
 		scope : {
 			carro: '='
