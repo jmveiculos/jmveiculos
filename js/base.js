@@ -11,21 +11,29 @@ if (typeof String.prototype.endsWith != 'function') {
   };
 }
 
-if(!window.Global){
-    window.Global = {};
+if(!window.JM){
+    window.JM = {};
 }
-if(!Global.angular_dependencies){
-  Global.angular_dependencies = [];
+if(!JM.angular_dependencies){
+  JM.angular_dependencies = [];
 }
 
-Global.loja_id = '3639';
-Global.revenda_url = 'http://yql-tables.surge.sh/carrosaojose.com.br/revenda.xml';
-Global.carro_url = 'http://yql-tables.surge.sh/carrosaojose.com.br/carro.xml';
+JM.loja_id = '3639';
+JM.revenda_url = 'http://yql-tables.surge.sh/carrosaojose.com.br/revenda.xml';
+JM.carro_url = 'http://yql-tables.surge.sh/carrosaojose.com.br/carro.xml';
 
 angular.module("jmapp", ['revendamodel', 'carromodel']);
 
 console.log('criou o jmapp');
 
-angular.module("jmapp").config(function($interpolateProvider){
-	$interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+angular.module("jmapp").config(function($interpolateProvider, $httpProvider){
+    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+
+
+
+
 });
